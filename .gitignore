@@ -1,0 +1,5 @@
+squad1/accounts.json
+squad2/accounts.json
+**/__pycache__
+**/token_cache.json
+**/*.log

@@ -1,0 +1,6 @@
+squad1/__pycache__
+squad2/__pycache__
+**/*.log
+**/token_cache.json
+**/accounts.json
+.git
