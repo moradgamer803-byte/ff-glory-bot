@@ -32,7 +32,7 @@ P1=$!
   done ) &
 P2=$!
 
-# SELF-PING: hits the public edge URL so Render's free tier never spins down.
-( URL="${RENDER_EXTERNAL_URL:-}"; while :; do sleep 240; [ -n "$URL" ] && python3 -c "import urllib.request,sys; urllib.request.urlopen(sys.argv[1]+\"/api/ping\", timeout=30).read()" "$URL"; done ) &
+# SELF-PING: hits the public edge URL so Render free tier never spins down.
+python3 /app/ping.py &
 
 wait $P1 $P2
