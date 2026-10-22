@@ -32,4 +32,7 @@ P1=$!
   done ) &
 P2=$!
 
+# SELF-PING: hits the public edge URL so Render's free tier never spins down.
+( URL="${RENDER_EXTERNAL_URL:-}"; while :; do sleep 240; [ -n "$URL" ] && curl -s -m 30 -o /dev/null "$URL/api/ping"; done ) &
+
 wait $P1 $P2
